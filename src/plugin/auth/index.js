@@ -77,7 +77,7 @@ export function canAccessRoute (to) {
     if (!r.regex.test(to.path)) {
       return false
     }
-    return canAccess(r.meta.auth)
+    return canAccess(r.meta.auth, true)
   })
 }
 
@@ -122,16 +122,20 @@ export function filterMenu (menu) {
     const newTree = []
     tree.forEach(value => {
       const item = cloneDeep(value)
+      let originalChildrenLength = 0
       if (hasOwnProperty(value, 'children') && Array.isArray(value.children)) {
-        item.children = filter(value.children)
+        originalChildrenLength = item.children.length
+        if (originalChildrenLength > 0) {
+          item.children = filter(value.children)
+        }
       }
       if (hasOwnProperty(routeMapping, item.path)) {
-        if (!isBoolean(routeMapping[item.path]) && !hasOwnProperty(permission, routeMapping[item.path])) {
+        if (!isBoolean(routeMapping[item.path]) && !canAccess(routeMapping[item.path], true)) {
           // 无权限访问
           return
         }
       }
-      if (Array.isArray(item.children) && item.children.length === 0) {
+      if (originalChildrenLength > 0 && item.children.length === 0) {
         // 空的父节点
         return
       }

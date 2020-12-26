@@ -14,13 +14,13 @@ function errorCreate (msg, code, dataAxios, response, silent) {
   error.data = dataAxios
   error.resp = response
   if (!silent) {
-    errorLog(error)
+    handleError(error)
   }
   return error
 }
 
 // 记录和显示错误
-function errorLog (error) {
+function handleError (error) {
   // 添加到日志
   store.dispatch('d2admin/log/push', {
     message: '数据请求异常',
@@ -104,7 +104,7 @@ service.interceptors.response.use(
       util.cookies.remove('token')
       util.cookies.remove('uuid')
       // 清空用户信息
-      await store.dispatch('d2admin/user/set', {}, { root: true })
+      await store.dispatch('d2admin/user/clean', {}, { root: true })
       // 跳转到登录页面
       router.push({
         name: 'login',
@@ -151,6 +151,8 @@ service.interceptors.response.use(
       }
       throw errorCreate(`${error.message} (${error.config.url})`, error.response.status, error.response.data, error.response, silent)
     }
+    handleError(error)
+    throw error
   }
 )
 

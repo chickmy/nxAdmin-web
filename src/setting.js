@@ -7,6 +7,17 @@ export default {
       close: 'esc'
     }
   },
+  // 功能特性开关
+  features: {
+    tabs: false,
+    headers: {
+      fullscreen: true,
+      theme: true,
+      size: false,
+      locales: false,
+      color: false,
+    },
+  },
   // 侧边栏默认配置
   menu: {
     asideCollapse: false,
@@ -31,6 +42,7 @@ export default {
   },
   // 注册的主题
   theme: {
+    default: 'd2',
     list: [
       {
         title: 'd2admin 经典',

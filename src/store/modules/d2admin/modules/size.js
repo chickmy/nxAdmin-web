@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import router from '@/router'
+import setting from '@/setting.js'
 
 const mapping = {
   default: {
@@ -28,7 +29,7 @@ export default {
   namespaced: true,
   state: {
     // 尺寸
-    value: '' // medium small mini
+    value: 'small' // medium small mini
   },
   actions: {
     /**
@@ -79,11 +80,16 @@ export default {
      * @param {Object} context
      */
     async load ({ state, dispatch }) {
+      if (!setting.features.headers.size) {
+        // 应用
+        dispatch('apply')
+        return
+      }
       // store 赋值
       state.value = await dispatch('d2admin/db/get', {
         dbName: 'sys',
         path: 'size.value',
-        defaultValue: 'default',
+        defaultValue: 'small',
         user: true
       }, { root: true })
       // 应用

@@ -3,21 +3,21 @@ module.exports = {
   env: {
     node: true
   },
-  'extends': [
+  extends: [
     'plugin:vue/essential',
     '@vue/standard'
   ],
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     // 暂时关闭对逗号的检查
-    'comma-dangle': ["off", "always-multiline"],
+    'comma-dangle': ['off', "always-multiline"],
     'camelcase': 'off',
     // script 标签缩进设置
-    "vue/script-indent": ["warn", 2, {
-      "baseIndent": 0,
-      "switchCase": 1,
-      "ignores": []
+    'vue/script-indent': ['warn', 2, {
+      baseIndent: 0,
+      switchCase: 1,
+      ignores: []
     }],
     // Object.prototype (https://eslint.org/docs/rules/no-prototype-builtins)
     'no-prototype-builtins': 'warn',
@@ -34,7 +34,7 @@ module.exports = {
     // quotes
     'quotes': 'warn',
     // object-curly-newline
-    'object-curly-newline': 'off'
+    'object-curly-newline': 'off',
   },
   parserOptions: {
     parser: 'babel-eslint'
@@ -50,9 +50,9 @@ module.exports = {
       }
     }, {
       // 关闭对 vue 文件的缩进检测
-      files: ["*.vue"],
+      files: ['*.vue'],
       rules: {
-        indent: "off",
+        indent: 'off',
       }
     }
   ]
