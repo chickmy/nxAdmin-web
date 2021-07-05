@@ -1,6 +1,13 @@
 import { uniqueId } from 'lodash'
 
 import admin from './modules/admin'
+import ebay from './modules/ebay'
+import warehouse from './modules/warehouse'
+import statistical from './modules/statistical'
+import collection from '@/menu/modules/collection'
+import client from '@/menu/modules/client'
+import review from '@/menu/modules/review'
+import dev from '@/menu/modules/dev'
 
 /**
  * @description 给菜单数据补充上 path 字段
@@ -21,6 +28,13 @@ function supplementPath (menu) {
 export const menuAside = supplementPath([
   { path: '/index', title: '首页', icon: 'home' },
   ...admin,
+  ...ebay,
+  ...warehouse,
+  ...statistical,
+  ...collection,
+  ...client,
+  ...review,
+  ...dev,
 ])
 
 // 菜单 顶栏

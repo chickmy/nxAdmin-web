@@ -18,7 +18,7 @@
           class="page-login--content-main"
           flex="dir:top main:center cross:center">
           <!-- logo -->
-          <img class="page-login--logo" src="./image/logo@2x.png" alt="web logo">
+          <img class="page-login--logo" src="./image/logo@2x1.png" alt="web logo">
           <!-- form -->
           <div class="page-login--form">
             <el-card shadow="never">
@@ -270,7 +270,7 @@ export default {
   }
   // main
   .page-login--logo {
-    width: 240px;
+    width: 300px;
     margin-bottom: 2em;
     margin-top: -2em;
   }

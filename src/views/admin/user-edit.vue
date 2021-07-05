@@ -69,7 +69,7 @@ export default {
           { required: true, min: 2, max: 64 },
         ],
         nickname: [
-          { required: true, min: 2, max: 64 },
+          { required: true, min: 3, max: 64 },
         ],
         password: [
           // { required: !this.id }, 表单动态规则响应可能不完善

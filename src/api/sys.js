@@ -16,3 +16,7 @@ export function captcha () {
     }
   })
 }
+
+export function upimg (formData) {
+  return request.post('/upload/uploadImages', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
+}

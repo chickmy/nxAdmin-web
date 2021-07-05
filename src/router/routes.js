@@ -1,5 +1,12 @@
 import layoutHeaderAside from '@/layout/header-aside'
 import admin from './modules/admin'
+import ebay from './modules/ebay'
+import warehoise from './modules/warehouse'
+import statistical from './modules/statistical'
+import collection from '@/router/modules/collection'
+import client from '@/router/modules/client'
+import review from '@/router/modules/review'
+import dev from '@/router/modules/dev'
 
 const _import = require('@/libs/util.import')
 
@@ -48,6 +55,13 @@ const frameIn = [
     ],
   },
   admin,
+  ebay,
+  warehoise,
+  statistical,
+  collection,
+  client,
+  review,
+  dev
 ]
 
 /**

@@ -28,6 +28,12 @@ import 'dayjs/locale/zh-cn'
 
 import fortawesome from '@/plugin/fortawesome/index'
 
+// jwchat
+import JwChat from 'jwchat'
+
+// 地图样式
+import './scss/main.scss'
+
 // 核心插件
 Vue.use(d2Admin)
 // 注册 iview
@@ -36,6 +42,8 @@ Vue.use(iviewMini)
 Vue.use(auth)
 // FortAwesome
 Vue.use(fortawesome)
+// jw chat
+Vue.use(JwChat)
 
 // fontawesome-5 (async load)
 // import('@/plugin/fortawesome/async').then(module => {
