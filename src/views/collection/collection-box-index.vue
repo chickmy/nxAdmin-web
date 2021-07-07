@@ -361,6 +361,20 @@ export default {
             this.ruleForm.ret_time,
           ).then(response => {
             if (response.code === 1) {
+              if (response.msg.Errors) {
+                let str = ''
+                str = response.msg.Errors.LongMessage
+                for (let i = 0; i < response.msg.Errors.length; i++) {
+                  str += '问题' + (i + 1) + '：' + response.msg.Errors[i].LongMessage + '\r\n'
+                  console.log(i)
+                }
+                str = str.replace(/</, "&lt;")
+                str = str.replace(/>/, "&gt;")
+                this.$alert(str, '错误', {
+                  dangerouslyUseHTMLString: true,
+                  confirmButtonText: '确定',
+                })
+              }
             } else {
               this.$message({ message: '提交成功', type: 'success' })
             }
